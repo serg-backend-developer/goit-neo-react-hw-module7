@@ -3,7 +3,7 @@ import { useId } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
 
-import { addContact } from '../../redux/contactsSlice';
+import { addContact } from '../../redux/contactsOps.js';
 import css from './ContactsForm.module.css';
 
 const INIT_DATA = {
