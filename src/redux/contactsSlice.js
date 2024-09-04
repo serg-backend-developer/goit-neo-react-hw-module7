@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 import { createSelector, createSlice } from "@reduxjs/toolkit";
 
-import { fetchContacts, addContact, deleteContact } from "./contactsOps.js";
+import { getContacts, addContact, deleteContact } from "./contactsOps.js";
 import { nameFilter } from "./filtersSlice.js";
 
 const rejected = (state, action) => {
@@ -26,13 +26,13 @@ const contactsSlice = createSlice({
 	},
 	extraReducers: (builder) => {
 		builder
-			.addCase(fetchContacts.pending, pending)
-			.addCase(fetchContacts.fulfilled, (state, action) => {
+			.addCase(getContacts.pending, pending)
+			.addCase(getContacts.fulfilled, (state, action) => {
 				state.loading = false;
 				state.error = null;
 				state.items = action.payload;
 			})
-			.addCase(fetchContacts.rejected, rejected)
+			.addCase(getContacts.rejected, rejected)
 			.addCase(addContact.pending, pending)
 			.addCase(addContact.fulfilled, (state, action) => {
 				state.loading = false;

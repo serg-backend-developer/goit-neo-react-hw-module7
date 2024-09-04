@@ -4,7 +4,7 @@ import { ToastContainer } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
-import { fetchContacts } from './redux/contactsOps.js';
+import { getContacts } from './redux/contactsOps.js';
 import { contactsLoading } from './redux/contactsSlice.js';
 
 import ContactList from './components/ContactList/ContactList.jsx';
@@ -17,7 +17,7 @@ const App = () => {
   const loading = useSelector(contactsLoading);
 
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(getContacts());
   }, [dispatch]);
 
   return (
